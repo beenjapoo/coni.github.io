@@ -1,0 +1,26 @@
+{% extends 'core/base.html' %} {% load static %} 
+
+
+{% block content %}
+
+
+{% if list %}
+<br>
+<header>
+<h1 class="title">Apks</h1>
+</header>
+
+<div class="container-fluid">
+    <div class="row">
+        <ul class="ApksGrid">
+        {% for aplicaciones in list %}
+            <li class="ApksCard"><a href="{% url 'apks' aplicaciones.idAplicacion %}"><img width="230" height="64" class="ApksImages" src="/media/{{ aplicaciones.imagen }}" alt=""><div>{{aplicaciones.nombreAplicacion}}</div></a></li>
+        {% endfor %}
+        </ul>
+    </div>
+</div>
+{% else %}
+<h1>No hay aplicaciones {% endif %}</h1>
+</div>
+
+{% endblock content %}
